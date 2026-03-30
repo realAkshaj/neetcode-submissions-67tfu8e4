@@ -1,0 +1,84 @@
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+
+        curr = left = currLen = 0
+        minLen = float('inf')
+
+        for right in range(len(nums)):
+
+            curr += nums[right]
+            currLen += 1
+
+            while curr >= target:
+
+                minLen = min(currLen,minLen)
+                curr -= nums[left]
+                left += 1
+                currLen -= 1
+            
+        return minLen if minLen != float('inf') else 0
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        # curr = left = 0
+        # minLen = float('inf')
+
+        # for right in range(len(nums)):
+        #     curr += nums[right]
+
+        #     while curr >= target:
+
+        #         minLen = min(minLen,right-left+1)
+        #         curr -= nums[left]
+        #         left +=1 
+
+        # return minLen if minLen < float('inf') else 0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        #     while curr >= target:
+        #         minLen = min(minLen, right - left + 1)
+        #         curr -= nums[left]
+        #         left += 1
+        
+        # return minLen if minLen != float('inf') else 0
